@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        class Person {
+
+            constructor(nameValue, lastNameValue, ageValue) {
+                this.name = nameValue
+                this.lastName = lastNameValue
+                this.age = ageValue
+            }
+
+            grow(years = 1) {
+                this.age += years
+            }
+        }
+
+        const person1 = new Person('Germán', 'Alvarez', 33)
+
+
+
+
+
+
+        class Player extends Person {
+
+            constructor(nameValue, lastNameValue, ageValue, nickValue, tokensValue, livesValue) {
+
+                super(nameValue, lastNameValue, ageValue)
+
+                this.nick = nickValue
+                this.tokens = tokensValue
+                this.lives = livesValue
+            }
+
+            looseTokens(quantity) {
+                this.tokens -= quantity
+            }
+
+            looseLives(quantity) {
+                this.lives -= quantity
+            }
+
+            buyLives(quantity) {
+                if (this.tokens < quantity * 10) {
+                    console.log(`Cash insuficiente (${this.tokens} restantes)`)
+                } else {
+                    this.tokens -= quantity * 10
+                    this.lives += quantity
+                }
+            }
+        }
+
+
+        const player1 = new Player('Abel', 'Andres', 33, 'madrileño99', 300, 10)
+        const player2 = new Player('Sara', 'María', 33, 'ShuMorenIkaH_ò_Ó', 300, 10)
+
+        console.log(`El jugador 2 se hace llamar ${player2.nick}, aunque en realidad se llama ${player2.name}`)
+
+        console.log(`El jugador 1 tiene ${player1.tokens} tokens, ${player1.lives} vidas y ${player1.age} años`)
+        player1.buyLives(5)
+        player1.grow()
+        console.log(`El jugador 1 tiene ${player1.tokens} tokens, ${player1.lives} vidas y ${player1.age} años`)
+
+
+
+
+
+
+
+        class Witch extends Player {
+
+            constructor(nameValue, lastNameValue, ageValue, nickValue, tokensValue, livesValue, potionValue) {
+
+                super(nameValue, lastNameValue, ageValue, nickValue, tokensValue, livesValue)
+
+                this.potion = potionValue
+            }
+
+            makeSpell() {
+                console.log(`Woah! La bruja ${this.nick} te echó un hechizo con su poción ${this.potion}`)
+            }
+        }
+
+
+        const witch1 = new Witch('Encarni', 'Lopez', 33, 'Sabrina', 300, 10, 'Manos gigantes')
+
+        console.log(`La bruja ${witch1.nick} en realidad se llama ${witch1.name}, y comienza con ${witch1.lives} vidas`)
+
+        witch1.makeSpell()
+
+
+
+
+
+
+        class Gnome extends Player {
+
+            constructor(nameValue, lastNameValue, ageValue, nickValue, tokensValue, livesValue) {
+
+                super(nameValue, lastNameValue, ageValue, nickValue, tokensValue, livesValue)
+            }
+
+            split() {
+                console.log(`¡Oh! El enano ${this.nick} te ecupió! Qué guarro es...!`)
+            }
+        }
+
+        const gnome1 = new Gnome('Ger', 'Alv', 33, 'Potatsio', 300, 10)
+        gnome1.split()
+
+    </script>
+</body>
+
+</html>

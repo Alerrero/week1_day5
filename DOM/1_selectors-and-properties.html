@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="title1" class="clase-inicial-primera clase-inicial-segunda">Contenido inicial</h1>
+    <h2 id="title2">Contenido secundario</h2>
+
+    <p class="paragraph">Soy el primer párrafo</p>
+    <p class="paragraph">Soy el segundo párrafo</p>
+    <p class="paragraph">Soy un párrafo</p>
+
+    <h5 class="subtitle">Soy un subtítulo</h5>
+
+
+    <script>
+
+        // Select a node (querySelector: returns node)
+        const title = document.querySelector('#title1')
+        const title2 = document.querySelector('h2')
+
+        // Select a node (querySelectorAll: returns nodeList)
+        const paragraphs = document.querySelectorAll('.paragraph')
+
+        console.log('Este es el nodo del título', { title })
+        console.log('Este es un array de tipo nodeList', { paragraphs })
+
+        // Node properties (getter)
+        console.log(`El texto del título es ${title.innerText}`)
+        console.log(`El id del título es ${title.id}`)
+        console.log(`Las clases del título son ${title.className}`)
+        console.log(`La etiqueta del título es ${title.tagName}`)
+
+        // Node properties (setter)
+        title.innerText = '¡Vengo del script! WTF'
+        title2.innerHTML = 'El cuerpo me pide <em>fuegote</em>'
+        title.style.color = 'red'
+        title.style.backgroundColor = 'yellow'
+
+        paragraphs[0].style.fontWeight = '900'
+        // paragraphs.forEach(function (eachParagraph) {
+        //     eachParagraph.style.color = 'red'
+        // })
+        paragraphs.forEach(eachParagraph => eachParagraph.style.color = 'red')
+
+
+    </script>
+</body>
+
+</html>

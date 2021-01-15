@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const person = {
+            name: 'Germán',
+            lastname: 'Álvarez',
+            city: 'Madrid',
+            height: 189,
+            weight: 88,
+            hobbies: ['sky', 'programming', 'beer', 'rave'],
+            subscriptions: [
+                {
+                    name: 'Netflix',
+                    period: 'monthly',
+                    price: 12,
+                    currency: '€'
+                },
+                {
+                    name: 'Adobe',
+                    period: 'yearly',
+                    price: 145,
+                    currency: '€'
+                }
+            ],
+            celiac: false,
+            alive: true,
+            age: 34,
+            grow(years = 1) {
+                this.age += years
+            },
+            learnNewHobby(hobby) {
+                this.hobbies.push(hobby)
+            },
+            looseWeight(kilograms) {
+                this.weight -= kilograms
+            },
+            getNewSubscription(subscription) {
+                this.subscriptions.push(subscription)
+            }
+        }
+
+
+        // Property accesing
+
+        console.log(`My name is ${person.name}`)                // getter
+        person.weight = 90                                      // setter
+
+        console.log(`My last name is ${person['lastname']}`)    // getter (alternative)
+        person['city'] = 'Gijón'                                // setter (alternative)
+
+
+        person.hobbies.push('Plants', 'Gadgets')
+        person.subscriptions.forEach(eachHobby => console.log(`Estoy pagando ${eachHobby.price} ${eachHobby.currency} por ${eachHobby.name}`))
+
+
+
+        // Object extension
+
+        person.company = 'Ironhack'
+        console.log(`La empresa de la persona es: ${person.company}`)
+
+
+
+        // Operators
+        const hasProp = 'whatever' in person
+        console.log(`¿Existe la propiedad "whatever" en el objeto?`, hasProp)
+
+        delete person.alive
+
+
+        // Properties listing
+        const personKeys = Object.keys(person)
+        console.log('Las propiedades del objeto son:', personKeys)
+
+        // Values listing
+        const personValues = Object.values(person)
+        console.log('Los valores del objeto son:', personValues)
+
+
+
+
+
+
+        // Object methods
+
+        person.learnNewHobby('Battery')
+        person.looseWeight(.1)
+        person.getNewSubscription({ name: 'Coursera', price: 50, period: 'yearly', currency: '€' })
+        person.grow()
+
+        console.log('Tras el uso de los métodos, este es el aspecto de nuestra persona:', person)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        class Person {
+
+            constructor(nameValue, lastNameValue, ageValue, hobbiesValue, celiacValue, heightValue) {
+                this.name = nameValue
+                this.lastName = lastNameValue
+                this.ageValue = ageValue
+                this.hobbies = hobbiesValue
+                this.celiac = celiacValue
+                this.height = heightValue
+            }
+
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            }
+
+            grow(centimeters) {
+                this.height += centimeters
+            }
+        }
+
+        const person1 = new Person('Germán', 'Alvarez', 33, ['sky', 'programming', 'beer'], false, 197)
+        const person2 = new Person('Alejandro', 'Herrero', 33, ['gadgets', 'cacaolat'], false, 197)
+
+        console.log(`La persona 1 se llama ${person1.name} ${person1.lastName}`)
+        console.log(`La persona 2 se llama ${person2.name} ${person2.lastName}`)
+        person1.hobbies.forEach(eachHobby => console.log(`Un hobby es ${eachHobby}`))
+
+
+        person2.learnNewHobby('raving')
+        console.log(`Los hobbies de la persona ahora son: ${person2.hobbies}`)
+
+
+
+    </script>
+</body>
+
+</html>
